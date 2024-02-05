@@ -1,0 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/22 17:59:06 by micarrel          #+#    #+#              #
+#    Updated: 2024/01/22 17:59:06 by micarrel         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME	=	megaphone
+
+C	=	c++
+
+CFLAGS	=	-Wall	-Wextra	-Werror	-g	-std=c++98
+
+FILES	=	megaphone.cpp
+
+OBJ	=	$(FILES:.cpp=.o)
+
+all:	$(NAME)
+
+$(NAME):
+	$(C)	$(CFLAGS)	$(FILES)	-o	$(NAME)
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm	$(NAME)
+
+re:	fclean	all
