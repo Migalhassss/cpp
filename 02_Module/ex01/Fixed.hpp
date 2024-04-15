@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/08 05:30:55 by micarrel          #+#    #+#             */
+/*   Updated: 2024/02/09 05:21:09 by micarrel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <iostream>
+# include <iomanip>
+# include <cmath>
+
+class Fixed
+{
+    private:
+        int nb;
+        static const int Bits = 8;
+    public:
+        Fixed();
+        ~Fixed();
+        Fixed(const Fixed &copy);
+        Fixed(const int value);
+        Fixed(const float value);
+        Fixed &operator=(const Fixed &other);
+        int getRawBits( void ) const;
+        void setRawBits( int const raw );
+        float toFloat(void) const;
+        int toInt(void) const;
+};
+
+std::ostream &	operator<<(std::ostream & out, Fixed const & nb);
+
+#endif
