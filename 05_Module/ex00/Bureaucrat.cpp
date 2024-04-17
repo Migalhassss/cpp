@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:17:46 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/16 18:42:13 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/04/17 17:00:21 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ void	Bureaucrat::decrementGrade()
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->grade++;
+}
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat &ref)
+{
+	os << ref.getname() << "bureaucrat grade" << ref.getgrade();
+	return (os);
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()

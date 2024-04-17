@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:08:39 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/16 18:29:11 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:58:55 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class Bureaucrat
 			public:
 				virtual const char* what() const throw();
 		};
-		
 };
 
+std::ostream &operator<<(std::ostream &os, Bureaucrat &ref);
 
-# endif	
+# endif
