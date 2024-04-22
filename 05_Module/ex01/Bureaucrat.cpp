@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:17:46 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/22 14:27:46 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/04/22 15:58:59 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,27 @@ int		Bureaucrat::getgrade() const
 {
 	return (this->grade);
 }
+
+void	Bureaucrat::signForm(Form &form)
+{
+	if (form.getSigned() == 1)
+		std::cout << name << " signed " << form.getName() << std::endl;
+	else
+	{
+		std::cout << name << " couldn't sign " << form.getName() << " because ";
+		if (grade > form.getExecuteGrade() && grade > form.getSignedGrade())
+			std::cout << "- grade is lower: Execute and Signed Grade";
+		else if (grade > form.getExecuteGrade())
+			std::cout << "- grade is lower: Execute Grade";
+		else if (grade > form.getSignedGrade())
+			std::cout << "- grade is lower: Signed Grade";
+		else if (form.getSigned() == 0)
+			std::cout << "- form is not signed";
+		else
+			std::cout << "- unknown reason";
+		std::cout << std::endl;
+	}
+}
 void	Bureaucrat::incrementGrade()
 {
 	if (this->grade <= 1)
@@ -58,7 +79,7 @@ void	Bureaucrat::incrementGrade()
 	else
 		this->grade--;
 }
-
+	
 void	Bureaucrat::decrementGrade()
 {
 	if (this->grade >= 150)

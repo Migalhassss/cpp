@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/15 16:08:39 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/17 17:48:08 by micarrel         ###   ########.fr       */
+/*   Created: 2024/04/17 15:49:53 by micarrel          #+#    #+#             */
+/*   Updated: 2024/04/18 18:14:17 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FORM_HPP
+#define FORM_HPP
 
-# ifndef BUREAUCRAT_hpp
-# define BUREAUCRAT_hpp
-
+#include "Bureaucrat.hpp"
 # include <iostream>
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
 	private:
-		const std::string	name;
-		int					grade;
+		const std::string	_name;
+		bool				_signed;
+		int					_signed_grade;
+		int					_execute_grade;
 	public:
-		Bureaucrat();
-		Bureaucrat(std::string name, int grade);
-		~Bureaucrat();
-		Bureaucrat &operator=(Bureaucrat const & other);
-		std::string getname() const;
-		int			getgrade() const;
-		void		incrementGrade();
-		void		decrementGrade();
-		
+		Form();
+		Form(std::string name, int execute_grade, int signed_grade);
+		~Form();
+		Form		&operator=(Form const & other);
+		void		beSigned(Bureaucrat &bureaucrat);
+		std::string	getName();
+		bool		getSigned();
+		int			getSignedGrade();
+		int			getExecuteGrade();
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -43,6 +47,6 @@ class Bureaucrat
 		};
 };
 
-std::ostream &operator<<(std::ostream &os, Bureaucrat &ref);
+std::ostream &operator<<(std::ostream &os, Form &ref);
 
-# endif
+#endif
