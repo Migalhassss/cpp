@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 17:50:02 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/22 15:58:16 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:03:43 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	Form::beSigned(Bureaucrat &ref)
 {
 	if (ref.getgrade() > this->_signed_grade)
 		throw GradeTooLowException();
-	this->_signed = true;	
+	this->_signed = true;
 }
 
 std::string Form::getName()

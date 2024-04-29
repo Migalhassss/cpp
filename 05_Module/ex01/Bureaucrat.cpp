@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:17:46 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/22 15:58:59 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:24:55 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ int		Bureaucrat::getgrade() const
 
 void	Bureaucrat::signForm(Form &form)
 {
-	if (form.getSigned() == 1)
+	if (form.getSigned() == false)
+	{
+		form.beSigned(*this);
 		std::cout << name << " signed " << form.getName() << std::endl;
+	}
 	else
 	{
 		std::cout << name << " couldn't sign " << form.getName() << " because ";
@@ -65,7 +68,7 @@ void	Bureaucrat::signForm(Form &form)
 			std::cout << "- grade is lower: Execute Grade";
 		else if (grade > form.getSignedGrade())
 			std::cout << "- grade is lower: Signed Grade";
-		else if (form.getSigned() == 0)
+		else if (form.getSigned() == true)
 			std::cout << "- form is not signed";
 		else
 			std::cout << "- unknown reason";
