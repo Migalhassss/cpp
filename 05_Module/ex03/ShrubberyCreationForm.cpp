@@ -44,6 +44,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 AForm * ShrubberyCreationForm::returnNew(std::string target) const
 {
+	std::cout << "Intern creates ShrubberyCreationForm" << std::endl;
 	return (new ShrubberyCreationForm(target));
 }
 

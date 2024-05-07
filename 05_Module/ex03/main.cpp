@@ -15,14 +15,20 @@
 
 int main()
 {
+	AForm *shrubberyForm = NULL;
+	AForm *robotomyForm = NULL;
+	AForm *pardonForm = NULL;
+
 	try
 	{
-		Intern intern;
 		Bureaucrat bob("Bob", 1);
-		AForm *shrubberyForm = intern.makeForm("ShrubberyCreationForm", "home");
-		AForm *robotomyForm = intern.makeForm("RobotomyRequestForm", "target");
-		AForm *pardonForm = intern.makeForm("PresidentialPardonForm", "criminal");
-	
+		Intern intern;
+		shrubberyForm = intern.makeForm("ShrubberyCreationForm", "home");
+		robotomyForm = intern.makeForm("RobotomyRequestForm", "target");
+		pardonForm = intern.makeForm("PresidentialPardonForm", "criminal");
+
+		if (shrubberyForm == NULL || robotomyForm == NULL || pardonForm == NULL)
+			return 1;
 		bob.signForm(*shrubberyForm);
 		bob.signForm(*robotomyForm);
 		bob.signForm(*pardonForm);
@@ -36,9 +42,6 @@ int main()
 		std::cout << "Test 3" << std::endl;
 		bob.executeForm(*pardonForm);
 		std::cout << std::endl;
-		delete shrubberyForm;
-		delete robotomyForm;
-		delete pardonForm;
 	}
 	catch (Bureaucrat::GradeTooHighException &exception)
 	{
@@ -52,4 +55,12 @@ int main()
 	{
 		std::cerr << "Caught exception: " << exception.what() << std::endl;
 	}
+
+	if (shrubberyForm != NULL)
+		delete shrubberyForm;
+	if (robotomyForm != NULL)
+		delete robotomyForm;
+	if (pardonForm != NULL)
+		delete pardonForm;
+	return 0;
 }
