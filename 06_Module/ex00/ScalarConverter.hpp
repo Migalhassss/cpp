@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 03:41:45 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/11 03:41:45 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:35:28 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
+# include <string>
+# include <cstdlib>
+# include <iomanip>
+# include <climits>
 
 class ScalarConverter
 {
@@ -31,10 +35,10 @@ class ScalarConverter
 		ScalarConverter & operator=(ScalarConverter const & rhs);
 
 		void	convert(std::string const & input);
-		void	displayChar();
-		void	displayInt();
-		void	displayFloat();
-		void	displayDouble();
+		void	displayChar(std::string const & input);
+		void	displayInt(std::string const & input);
+		void	displayFloat(std::string const & input);
+		void	displayDouble(std::string const & input);
 
 };
 

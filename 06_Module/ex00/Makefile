@@ -12,10 +12,10 @@
 
 
 
-NAME	=	Intern
+NAME	=	Converter
 CXX	=	c++
 
-CXXFLAGS	=	-Wall	-Wextra	-Werror	-g	-std=c++98
+CXXFLAGS	=	-Wall	-Wextra	-Werror	-g	-std=c++98	
 
 FILES	=	main.cpp 					\
 			ScalarConverter.cpp

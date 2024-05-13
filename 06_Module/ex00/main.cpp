@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <iostream>
 
-int main()
+int main(int ac, char **av)
 {
+	if (ac != 2)
+	{
+		std::cout << "Usage: ./Converter [input]" << std::endl;
+		return 1;
+	}
 	ScalarConverter converter;
-	converter.convert("nan");
-	converter.convert("42.0f");
-	converter.convert("42.0");
+	converter.convert(av[1]);
+	return 0;
 }
