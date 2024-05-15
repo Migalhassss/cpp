@@ -12,4 +12,6 @@
 
 #include "Base.hpp"
 
-Base::~Base() {}
+Base::~Base() {
+    std::cout << "Base destructor called" << std::endl;
+}
