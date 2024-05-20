@@ -6,15 +6,16 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:45:12 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/16 15:49:17 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/20 14:46:54 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include <cstdlib>
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
 # include <iostream>
-# include <cstdlib>
 
 template <typename T>
 class Array
@@ -48,7 +49,7 @@ class Array
 			return *this;
 		}
 		T &operator[](unsigned int n) {
-			if (n >= _size || n < 0)
+			if (n >= _size)
 				throw OutOfBound();
 			return _array[n];
 		}
