@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:49:53 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/18 18:14:17 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:59:32 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Form
 	private:
 		const std::string	_name;
 		bool				_signed;
-		int					_signed_grade;
-		int					_execute_grade;
+		const int					_signed_grade;
+		const int					_execute_grade;
 	public:
 		Form();
 		Form(std::string name, int execute_grade, int signed_grade);

@@ -6,12 +6,13 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:07:33 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/14 15:07:43 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/21 10:56:36 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-Base::~Base() {
-    std::cout << "Base destructor called" << std::endl;
+Base::~Base()
+{
+	std::cout << "Base destructor called" << std::endl;
 }

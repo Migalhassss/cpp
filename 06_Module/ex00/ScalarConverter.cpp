@@ -41,7 +41,9 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & src)
 void	ScalarConverter::convert(std::string const & input)
 {
 
-	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf")
+	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
+		|| input == "-inff" || input == "+inff" || input == "inff"
+		|| input == "nanf")
 	{
 		this->_char = 0;
 	}
@@ -74,7 +76,9 @@ void	ScalarConverter::convert(std::string const & input)
 void	ScalarConverter::displayChar(std::string const & input)
 {
 	std::cout << "char: ";
-	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf")
+	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
+		|| input == "-inff" || input == "+inff" || input == "inff"
+		|| input == "nanf")
 	{
 		std::cout << "impossible" << std::endl;
 		return ;
@@ -87,7 +91,9 @@ void	ScalarConverter::displayChar(std::string const & input)
 
 void	ScalarConverter::displayInt(std::string const & input)
 {
-	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf")
+	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
+		|| input == "-inff" || input == "+inff" || input == "inff"
+		|| input == "nanf")
 	{
 		std::cout << "int: impossible" << std::endl;
 		return ;
@@ -100,7 +106,9 @@ void	ScalarConverter::displayInt(std::string const & input)
 
 void	ScalarConverter::displayFloat(std::string const & input)
 {
-	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf")
+	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
+		|| input == "-inff" || input == "+inff" || input == "inff"
+		|| input == "nanf")
 	{
 		std::cout << "float: " << input << "f" << std::endl;
 		return ;
@@ -110,7 +118,9 @@ void	ScalarConverter::displayFloat(std::string const & input)
 
 void	ScalarConverter::displayDouble(std::string const & input)
 {
-	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf")
+	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
+		|| input == "-inff" || input == "+inff" || input == "inff"
+		|| input == "nanf")
 	{
 		std::cout << "double: " << input << std::endl;
 		return ;

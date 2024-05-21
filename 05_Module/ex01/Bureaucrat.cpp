@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:17:46 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/29 17:24:55 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:22:17 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		Bureaucrat::getgrade() const
 
 void	Bureaucrat::signForm(Form &form)
 {
-	if (form.getSigned() == false)
+	if (grade <= form.getSignedGrade() && form.getSigned() == false)
 	{
 		form.beSigned(*this);
 		std::cout << name << " signed " << form.getName() << std::endl;

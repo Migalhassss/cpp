@@ -27,21 +27,25 @@ int main()
 		robotomyForm = intern.makeForm("RobotomyRequestForm", "target");
 		pardonForm = intern.makeForm("PresidentialPardonForm", "criminal");
 
-		if (shrubberyForm == NULL || robotomyForm == NULL || pardonForm == NULL)
-			return 1;
-		bob.signForm(*shrubberyForm);
-		bob.signForm(*robotomyForm);
-		bob.signForm(*pardonForm);
+		
+		if (shrubberyForm != NULL && robotomyForm != NULL && pardonForm != NULL)
+		{		
+			bob.signForm(*shrubberyForm);
+			bob.signForm(*robotomyForm);
+			bob.signForm(*pardonForm);
 
-		std::cout << "Test 1" << std::endl;
-		bob.executeForm(*shrubberyForm);
-		std::cout << std::endl;
-		std::cout << "Test 2" << std::endl;
-		bob.executeForm(*robotomyForm);
-		std::cout << std::endl;
-		std::cout << "Test 3" << std::endl;
-		bob.executeForm(*pardonForm);
-		std::cout << std::endl;
+			std::cout << "Test 1" << std::endl;
+			bob.executeForm(*shrubberyForm);
+			std::cout << std::endl;
+			std::cout << "Test 2" << std::endl;
+			bob.executeForm(*robotomyForm);
+			std::cout << std::endl;
+			std::cout << "Test 3" << std::endl;
+			bob.executeForm(*pardonForm);
+			std::cout << std::endl;
+		}
+		else
+			std::cerr << "Form creation failed" << std::endl;
 	}
 	catch (Bureaucrat::GradeTooHighException &exception)
 	{

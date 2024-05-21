@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:09:03 by micarrel          #+#    #+#             */
-/*   Updated: 2024/04/22 15:59:17 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:55:22 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int main()
 	try
 	{
 		std::cout << "--------------------TEST 1--------------------" << std::endl;
-		Bureaucrat Pedro("Pedro", 1);
-		std::cout << Pedro << std::endl;
+		Bureaucrat bobo("bobo", 1);
+		std::cout << bobo << std::endl;
 		Form form1("Form1", 1, 1);
 		std::cout << form1 << std::endl;
-		Pedro.signForm(form1);
+		bobo.signForm(form1);
 		std::cout << form1 << std::endl;
 	}
 	catch (Bureaucrat::GradeTooHighException &exception)
