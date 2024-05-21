@@ -91,6 +91,8 @@ void	ScalarConverter::displayChar(std::string const & input)
 
 void	ScalarConverter::displayInt(std::string const & input)
 {
+	long temp = std::atol(input.c_str());
+
 	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
 		|| input == "-inff" || input == "+inff" || input == "inff"
 		|| input == "nanf")
@@ -98,7 +100,7 @@ void	ScalarConverter::displayInt(std::string const & input)
 		std::cout << "int: impossible" << std::endl;
 		return ;
 	}
-	if (this->_int > INT_MAX || this->_int < INT_MIN)
+	if (temp > INT_MAX || temp < INT_MIN)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << this->_int << std::endl;
