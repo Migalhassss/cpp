@@ -19,7 +19,6 @@ int main(int ac, char **av)
 		std::cout << "Usage: ./Converter [input]" << std::endl;
 		return 1;
 	}
-	ScalarConverter converter;
-	converter.convert(av[1]);
+	ScalarConverter::convert(av[1]);
 	return 0;
 }

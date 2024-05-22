@@ -27,53 +27,50 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter & ScalarConverter::operator=(ScalarConverter const & src)
 {
-	if (this != &src)
-	{
-		this->_input = src._input;
-		this->_char = src._char;
-		this->_int = src._int;
-		this->_float = src._float;
-		this->_double = src._double;
-	}
+	(void)src;
 	return *this;
 }
 
 void	ScalarConverter::convert(std::string const & input)
 {
+	int	_int = 0;
+	float	_float = 0;
+	double	_double = 0;
+	char	_char;
 
 	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
 		|| input == "-inff" || input == "+inff" || input == "inff"
 		|| input == "nanf")
 	{
-		this->_char = 0;
+		_char = 0;
 	}
 	else
 	{
 		if (input.length() == 1 && !isdigit(input[0]))
 		{
-			this->_char = input[0];
-			this->_int = static_cast<int>(this->_char);
-			this->_float = static_cast<float>(this->_char);
-			this->_double = static_cast<double>(this->_char);
+			_char = input[0];
+			_int = static_cast<int>(_char);
+			_float = static_cast<float>(_char);
+			_double = static_cast<double>(_char);
 		}
 		else
 		{
-			this->_int = std::atoi(input.c_str());
-			this->_double = std::atof(input.c_str());
-			this->_float = static_cast<float>(this->_double);
-			if (this->_double - this->_int == 0)
-				this->_char = static_cast<char>(this->_int);
+			_int = std::atoi(input.c_str());
+			_double = std::atof(input.c_str());
+			_float = static_cast<float>(_double);
+			if (_double - _int == 0)
+				_char = static_cast<char>(_int);
 			else
-				this->_char = 0;
+				_char = 0;
 		}
 	}
-	displayChar(input);
-	displayInt(input);
-	displayFloat(input);
-	displayDouble(input);
+	displayChar(input, _char);
+	displayInt(input, _int);
+	displayFloat(input, _float);
+	displayDouble(input, _double);
 }
 
-void	ScalarConverter::displayChar(std::string const & input)
+void	ScalarConverter::displayChar(std::string const & input, char  _char)
 {
 	std::cout << "char: ";
 	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
@@ -83,13 +80,13 @@ void	ScalarConverter::displayChar(std::string const & input)
 		std::cout << "impossible" << std::endl;
 		return ;
 	}
-	if (isprint(this->_char))
-		std::cout << "'" << this->_char << "'" << std::endl;
+	if (isprint(_char))
+		std::cout << "'" << _char << "'" << std::endl;
 	else
 		std::cout << "Non displayable" << std::endl;
 }
 
-void	ScalarConverter::displayInt(std::string const & input)
+void	ScalarConverter::displayInt(std::string const & input, int _int)
 {
 	long temp = std::atol(input.c_str());
 
@@ -103,10 +100,10 @@ void	ScalarConverter::displayInt(std::string const & input)
 	if (temp > INT_MAX || temp < INT_MIN)
 		std::cout << "int: impossible" << std::endl;
 	else
-		std::cout << "int: " << this->_int << std::endl;
+		std::cout << "int: " << _int << std::endl;
 }
 
-void	ScalarConverter::displayFloat(std::string const & input)
+void	ScalarConverter::displayFloat(std::string const & input, float _float)
 {
 	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
 		|| input == "-inff" || input == "+inff" || input == "inff"
@@ -115,10 +112,10 @@ void	ScalarConverter::displayFloat(std::string const & input)
 		std::cout << "float: " << input << "f" << std::endl;
 		return ;
 	}
-	std::cout << "float: " << std::fixed  << std::setprecision(1) << this->_float << "f" << std::endl;
+	std::cout << "float: " << std::fixed  << std::setprecision(1) << _float << "f" << std::endl;
 }
 
-void	ScalarConverter::displayDouble(std::string const & input)
+void	ScalarConverter::displayDouble(std::string const & input, double _double)
 {
 	if (input == "nan" || input == "-inf" || input == "+inf" || input == "inf"
 		|| input == "-inff" || input == "+inff" || input == "inff"
@@ -127,5 +124,5 @@ void	ScalarConverter::displayDouble(std::string const & input)
 		std::cout << "double: " << input << std::endl;
 		return ;
 	}
-	std::cout << "double: " << std::fixed  << std::setprecision(1) << this->_double << std::endl;
+	std::cout << "double: " << std::fixed  << std::setprecision(1) << _double << std::endl;
 }

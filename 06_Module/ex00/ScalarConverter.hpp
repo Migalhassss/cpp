@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 03:41:45 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/14 12:18:29 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:20:00 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,16 @@
 class ScalarConverter
 {
 	private:
-		std::string	_input;
-		char		_char;
-		int			_int;
-		float		_float;
-		double		_double;
-	public:
 		ScalarConverter();
 		ScalarConverter(ScalarConverter const & src);
+	public:
 		~ScalarConverter();
-
 		ScalarConverter & operator=(ScalarConverter const & rhs);
-
-		void	convert(std::string const & input);
-		void	displayChar(std::string const & input);
-		void	displayInt(std::string const & input);
-		void	displayFloat(std::string const & input);
-		void	displayDouble(std::string const & input);
-
+		static void	convert(std::string const & input);
+		static void	displayChar(std::string const & input, char _char);
+		static void	displayInt(std::string const & input, int _int);
+		static void	displayFloat(std::string const & input, float _float);
+		static void	displayDouble(std::string const & input, double _double);
 };
 
 #endif
