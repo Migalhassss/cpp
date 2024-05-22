@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:43:32 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/22 14:38:42 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:47:57 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,17 @@ int main(int, char**)
 		std::cerr << e.what() << '\n';
 	}
 	delete [] mirror;
+
+
+	try
+	{
+		Array<int> emptyarray(0);
+		std::cout << "Empty array created" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Failed to create empty array" << std::endl;
+	}
 	return 0;
 }
 

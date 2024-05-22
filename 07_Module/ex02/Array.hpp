@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:45:12 by micarrel          #+#    #+#             */
-/*   Updated: 2024/05/20 14:46:54 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:41:44 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ class Array
 					return "Out of bound";
 				}
 		};
-		Array &operator=(const Array &src) {
-			if (this != &src) {
+		Array &operator=(const Array &src) 
+		{
+			if (this != &src)
+			{
 				delete [] _array;
 				_array = new T[src._size];
 				_size = src._size;
@@ -48,7 +50,8 @@ class Array
 			}
 			return *this;
 		}
-		T &operator[](unsigned int n) {
+		T &operator[](unsigned int n)
+		{
 			if (n >= _size)
 				throw OutOfBound();
 			return _array[n];
