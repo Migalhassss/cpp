@@ -24,22 +24,12 @@ const int PmergeMe::jacobsthal[35] = {
 	1431655765};
 
 template <typename Container>
-void printContainer(const Container& container, const std::string& name) {
+void PmergeMe::printContainer(const Container& container, const std::string& name) {
 	std::cout << name << ": ";
 	for (typename Container::const_iterator it = container.begin(); it != container.end(); ++it) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
-}
-
-int* PmergeMe::generateJacobsthalSequence(int n) {
-	int* jacobsthal = new int[n + 1];
-	jacobsthal[0] = 0;
-	jacobsthal[1] = 1;
-	for (int i = 2; i <= n; ++i) {
-		jacobsthal[i] = jacobsthal[i - 1] + 2 * jacobsthal[i - 2];
-	}
-	return jacobsthal;
 }
 
 int PmergeMe::calculateCurrentIndex(int index) {
@@ -102,12 +92,8 @@ void PmergeMe::fordJohnsonSort(Container& container) {
 	if (copy.size() % 2 != 0) {
 		container.push_back(copy[size]);
 	}
-	printContainer(container, "1");
-
 	fordJohnsonSort(container);
 	binaryJacobsthalInsert(container, smaller);
-
-  	printContainer(container, "2");
 }
 
 void PmergeMe::sortAndPrint(int argc, char* argv[]) {
@@ -116,11 +102,26 @@ void PmergeMe::sortAndPrint(int argc, char* argv[]) {
 		return;
 	}
 
+
 	for (int i = 1; i < argc; ++i) {
 		int num = std::atoi(argv[i]);
 		vec.push_back(num);
 		deq.push_back(num);
 	}
+
+	//check is already sorted
+	bool sorted = true;
+	for (size_t i = 0; i < vec.size() - 1; ++i) {
+		if (vec[i] > vec[i + 1]) {
+			sorted = false;
+		}
+	}
+	if (sorted) {
+		std::cout << "Already sorted" << std::endl;
+		return ;
+	}	
+
+
 
 	std::cout << "Before: ";
 	printContainer(vec, "");
@@ -143,4 +144,5 @@ void PmergeMe::sortAndPrint(int argc, char* argv[]) {
 
 	std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << std::fixed << std::setprecision(5) << vec_duration << " us" << std::endl;
 	std::cout << "Time to process a range of " << deq.size() << " elements with std::deque: " << std::fixed << std::setprecision(5) << deq_duration << " us" << std::endl;
+	
 }

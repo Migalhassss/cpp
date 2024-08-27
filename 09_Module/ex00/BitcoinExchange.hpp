@@ -6,7 +6,7 @@
 /*   By: micarrel <micarrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:59:25 by micarrel          #+#    #+#             */
-/*   Updated: 2024/08/19 22:23:25 by micarrel         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:24:18 by micarrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class BitcoinExchange
 		bool	checkValue(double value);
 		bool	isLeapYear(int year);
 		int		daysInMonth(int month, int year);
-		void	showResult(std::string const & date, float value);
+		void	showResult(std::string const & date, double value);
 		void	loadData();
 		void	execute();
 		class invalid_file : public std::exception
